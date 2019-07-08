@@ -1,0 +1,14 @@
+{
+    "name": "isu/dunfa",
+    "description": "dunfanet",
+    "authors": [
+        {
+            "name": "KGC-ISU",
+            "email": "overnice2020@gmail.com"
+        }
+    ],
+    "require": {
+        "jenssegers/blade": "^1.2",
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
