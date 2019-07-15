@@ -5,7 +5,7 @@
 <section id="slider">
     <div class="container">
         <header>
-            슬라이드
+            <h1>슬라이드</h1>
         </header>
     </div>
 </section>

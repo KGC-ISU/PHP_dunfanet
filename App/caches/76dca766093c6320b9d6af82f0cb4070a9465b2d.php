@@ -82,4 +82,4 @@
         </div>
     </footer>
 </body>
-</html>
+</html><?php /**PATH C:\dev\xampp\htdocs\App\views/layout/master.blade.php ENDPATH**/ ?>
