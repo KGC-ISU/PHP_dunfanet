@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
+    "css-split-webpack-plugin": "^0.2.6",
     "jquery": "^3.4.1"
   }
 }

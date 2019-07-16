@@ -9,6 +9,15 @@ class StaticController extends MasterController {
 
     }
 
+    public function char() {
+        $this->render("char/search");
+    }
+
+    public function test() {
+        $this->render("test");
+    }
+
+
     public function errorPage($msg) {
         $this->render("error", ['msg' => $msg]);
     }
