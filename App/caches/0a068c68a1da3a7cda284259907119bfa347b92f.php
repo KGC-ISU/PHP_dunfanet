@@ -44,7 +44,7 @@
         </div>
     </header>
 
-    @yield('maincontent')
+    <?php echo $__env->yieldContent('maincontent'); ?>
 
     <footer class="main-foot">
         <a href="https://developers.neople.co.kr/"><img src="/imgs/neople.png" alt="neople"></a>
@@ -55,4 +55,4 @@
         </div>
     </footer>
 </body>
-</html>
+</html><?php /**PATH C:\dev\xampp\htdocs\App\views/layout/masterMain.blade.php ENDPATH**/ ?>

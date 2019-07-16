@@ -549,7 +549,7 @@ footer.main-foot > .foot-box > span {
     display: grid;
     grid-template-columns: repeat(3, 380px);
     justify-content: center;
-    grid-auto-rows: 380px;
+    grid-auto-rows: 400px;
     grid-gap: 50px 40px;
     width: 1300px;
     min-height: 585px;
@@ -565,7 +565,7 @@ footer.main-foot > .foot-box > span {
 
 .chars > .img-box {
     position: relative;
-    top: -20px;
+    top: -5px;
     right: -5px;
     display: flex;
     justify-content: center;

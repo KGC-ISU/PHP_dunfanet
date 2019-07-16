@@ -16,9 +16,9 @@
             <ul class="head-nav">
                 <li><a href="/">메인</a></li>
                 <li><a href="/item.html">아이템</a></li>
-                <li><a href="https://developers.neople.co.kr/" target="_blank">API</a></li>
-                <li><a href="http://df.nexon.com/df/home" target="_blank">던파</a></li>
                 <li><a>더보기</a></li>
+                <li><a href="https://developers.neople.co.kr/" target="_blank">API</a></li>
+                <li><a href="http://df.nexon.com/df/home" target="_blank">던파</a></li>                
             </ul>
         </div>
     </header>

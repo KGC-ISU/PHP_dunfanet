@@ -1,6 +1,4 @@
-@extends('layout/master')
-
-@section('maincontent')
+<?php $__env->startSection('maincontent'); ?>
 
     <div class="re-search-box">
         <div class="search-box">
@@ -24,38 +22,39 @@
         </div>
     </div>
         
-        @if(empty($list))
+        <?php if(empty($list)): ?>
 
         <div class="notfound-section">
             <h1>검색 결과 없음</h1>
             <p><i class="far fa-times-circle"></i></p>
         </div>
 
-        @else
+        <?php else: ?>
 
         <div class="result-section">
 
-            @foreach($list as $items)
+            <?php $__currentLoopData = $list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                @if($items->level >= 90)
+                <?php if($items->level >= 90): ?>
 
-                <div class="chars" onclick="location.href='/charinfo?id={{ $items->characterId }}&server={{ $server }}'">
-                    <span class="server-name">{{ ${$server} }}</span>
-                    <span class="char-level">{{ $items->level }}</span>
+                <div class="chars" onclick="location.href='/charinfo?id=<?php echo e($items->characterId); ?>&server=<?php echo e($server); ?>'">
+                    <span class="server-name"><?php echo e(${$server}); ?></span>
+                    <span class="char-level"><?php echo e($items->level); ?></span>
                     <div class="img-box">
-                        <img src="https://img-api.neople.co.kr/df/servers/{{ $server }}/characters/{{ $items->characterId }}?zoom=1" alt="characterImg">
+                        <img src="https://img-api.neople.co.kr/df/servers/<?php echo e($server); ?>/characters/<?php echo e($items->characterId); ?>?zoom=1" alt="characterImg">
                     </div>
                     <div class="char-info">
-                        <span class="char-name">{{ $items->characterName }}</span>
-                        <span class="job-name">{{ $items->jobGrowName }}</span>
+                        <span class="char-name"><?php echo e($items->characterName); ?></span>
+                        <span class="job-name"><?php echo e($items->jobGrowName); ?></span>
                     </div>
                 </div>
 
-                @endif
+                <?php endif; ?>
 
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
-        @endif
+        <?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout/master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\dev\xampp\htdocs\App\views/char/search.blade.php ENDPATH**/ ?>
