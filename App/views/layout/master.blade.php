@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DunFa</title>
-    <link rel="stylesheet" href="css/char.css">
-    <link rel="stylesheet" href="css/fontawesome-free-5.9.0-web/css/all.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body>
