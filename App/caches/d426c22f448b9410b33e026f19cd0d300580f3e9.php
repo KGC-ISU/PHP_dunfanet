@@ -37,11 +37,11 @@
 
                 <?php if($items->level >= 90): ?>
 
-                <div class="chars">
+                <div class="chars" onclick="location.href='/charinfo?id=<?php echo e($items->characterId); ?>&server=<?php echo e($server); ?>'">
                     <span class="server-name"><?php echo e(${$server}); ?></span>
                     <span class="char-level"><?php echo e($items->level); ?></span>
                     <div class="img-box">
-                        <img src="https://img-api.neople.co.kr/df/servers/cain/characters/<?php echo e($items->characterId); ?>?zoom=1" alt="characterImg">
+                        <img src="https://img-api.neople.co.kr/df/servers/<?php echo e($server); ?>/characters/<?php echo e($items->characterId); ?>?zoom=1" alt="characterImg">
                     </div>
                     <div class="char-info">
                         <span class="char-name"><?php echo e($items->characterName); ?></span>
