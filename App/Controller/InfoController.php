@@ -71,7 +71,12 @@ class InfoController extends MasterController {
             $data = json_decode($res->getBody());
 
             // 캐릭터 스위칭 아바타
-            $swAvatar = $data->skill->buff->avatar;   
+
+            if($data->skill->buff->avatar == null) {
+                $swAvatar = null;
+            } else {
+                $swAvatar = $data->skill->buff->avatar; 
+            }              
 
             $url = "https://api.neople.co.kr/df/servers/" . $server . "/characters/" . $id . "/skill/buff/equip/creature?apikey=" . self::KEY;
 
@@ -79,14 +84,41 @@ class InfoController extends MasterController {
 
             $data = json_decode($res->getBody());
 
+            // 캐릭터 스위칭 크리처
+
             if($data->skill->buff->creature == null) {
                 $swCreature = null;
             } else {
                 $swCreature = $data->skill->buff->creature;
             }
         }
+
+        $url = "https://api.neople.co.kr/df/servers/" . $server . "/characters/" . $id . "/status?apikey=" . self::KEY;
+
+        $res = $client->request("GET", $url, []);
+
+        $data = json_decode($res->getBody());
+
+        // 캐릭터 스탯
+
+        $stat = $data->status;
+
+
+        $url = "https://api.neople.co.kr/df/servers/" . $server . "/characters/" . $id . "/equip/flag?apikey=" . self::KEY;
+
+        $res = $client->request("GET", $url, []);
+
+        $data = json_decode($res->getBody());
+
+        // 캐릭터 휘장
+
+        if($data->flag == null) {
+            $insignia = null;
+        } else {
+            $insignia = $data->flag;
+        }
         
-        $this->render("char/info", ['info' => $data, 'equip' => $equip, 'creature' => $creture, 'avatar' => $avatar, 'swInfo' => $swInfo, 'swItem' => $swItem, 'swAvatar' => $swAvatar, 'swCreature' => $swCreature, 'server' => $server, 'cain'=>'카인', 'diregie'=>'디레지에', 'siroco'=>'시로코', 'prey'=>'프레이', 'casillas'=>'카시야스', 'hilder'=>'힐더', 'anton'=>'안톤', 'bakal'=>'바칼' ]);
+        $this->render("char/info", ['info' => $data, 'equip' => $equip, 'creature' => $creture, 'avatar' => $avatar, 'swInfo' => $swInfo, 'swItem' => $swItem, 'swAvatar' => $swAvatar, 'swCreature' => $swCreature, 'stat' => $stat, 'insignia' => $insignia, 'server' => $server, 'cain'=>'카인', 'diregie'=>'디레지에', 'siroco'=>'시로코', 'prey'=>'프레이', 'casillas'=>'카시야스', 'hilder'=>'힐더', 'anton'=>'안톤', 'bakal'=>'바칼' ]);
 
     }
 

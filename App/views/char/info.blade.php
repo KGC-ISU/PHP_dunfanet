@@ -1049,15 +1049,116 @@
             </div>
             
             <div class="main-buff-section">
+                <h3>스위칭 장비</h3>
+                @foreach($swItem as $items)
+                <div class="item-info-box">
+                    <div class="item-slot">
+                        {{ $items->slotName }}
+                    </div>
+                    <div class="item-img">
+                        <img src="https://img-api.neople.co.kr/df/items/{{ $items->itemId }}" alt="">
+                    </div>
+                    <div class="item-name-enchant">
+                        <div class="name">
+                            {{ $items->itemName }}
+                        </div>
+                        <div class="enchants">
+                            @if(isset($items->enchant->status))
+                                @foreach($items->enchant->status as $enchantStat)
+                                    {{ $enchantStat->name }} +{{ $enchantStat->value }} &nbsp
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                    <div class="item-grade">
+                        @if($items->reinforce > 0)
+                            +{{ $items->reinforce }} 강화
+                        @elseif($items->refine > 0)
+                            +{{ $items->refine }} 증폭
+                        @endif
+                    </div>
+                </div>
+                @endforeach
                 
+                <h3>스위칭 아바타</h3>
+                @if($swAvatar == null)
+                    
+                @else
+                    @foreach($swAvatar as $items)
+                    <div class="item-info-box">
+                        <div class="item-slot">
+                            {{ $items->slotName }}
+                        </div>
+                        <div class="item-img">
+                            <img src="https://img-api.neople.co.kr/df/items/{{ $items->itemId }}" alt="">
+                        </div>
+                        <div class="item-name-enchant">
+                            <div class="name">
+                                {{ $items->itemName }}
+                            </div>
+                            <div class="enchants">
+                                @foreach($items->emblems as $emb)
+                                    {{ $emb->itemName }} &nbsp
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
             </div>
     
             <div class="main-stat-section">
-                스탯
+                <div class="stat-inner-box">
+                    @foreach($stat as $items)
+                        @if($items->name == "히트리커버리")
+                        
+                        @else
+                            <div class="stat-box">
+                                <div class="stat-title">
+                                    <h3>{{ $items->name }}</h3>
+                                </div>
+                                <div class="stat-value">
+                                    <p>{{ $items->value }}</p>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>                
             </div>
     
             <div class="main-insignia-section">
-                휘장
+                @if($insignia == null)
+
+                @else 
+                    <div class="insignia">                  
+                        <div class="flag">
+                            <div class="img">
+                                <img src="https://img-api.neople.co.kr/df/items/{{ $insignia->itemId }}" alt="flag">
+                            </div>
+                            <div class="name">
+                                <p>{{ $insignia->itemName }}</p>
+                            </div>
+                            <div class="stat">
+                                <p>{{ $insignia->itemAbility }}</p>
+                            </div>
+                        </div>                   
+                    </div>
+                    <div class="gem-list">
+                        @foreach($insignia->gems as $items)                                        
+                            <div class="gem">
+                                <div class="img">
+                                    <img src="https://img-api.neople.co.kr/df/items/{{ $items->itemId }}" alt="gem">
+                                </div>
+                                <div class="name">
+                                    <p>{{ $items->itemName }}</p>
+                                </div>
+                                <div class="stat">
+                                    <p>{{ $items->itemAbility }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
     </section>

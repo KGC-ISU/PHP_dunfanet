@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: rgba(0, 0, 0, 0.018);
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .main-header {
@@ -919,6 +919,7 @@ footer.main-foot > .foot-box > span {
 
 #main-section .main-inner-box {
     width: 100%;
+    min-height: 200px;
     margin-top: 15px;
 }
 
@@ -1003,4 +1004,145 @@ footer.main-foot > .foot-box > span {
     background-color: rgba(0, 0, 0, 0.2);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.main-buff-section h3 {
+    margin: 35px 0 15px 3px;
+}
+
+.main-stat-section .stat-inner-box {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.main-stat-section .stat-box {
+    display: flex;
+    flex-direction: column;
+    width: 42%;
+    height: 60px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 6px 0;
+}
+
+.main-stat-section .stat-box .stat-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 0.75rem;
+}
+
+.main-stat-section .stat-box .stat-value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.main-insignia-section .insignia {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 260px;
+    margin: 30px 0 60px 0;
+}
+
+.main-insignia-section .insignia .flag {
+    width: 400px;
+    height: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.main-insignia-section .insignia .flag .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    margin-top: 10px;
+}
+
+.main-insignia-section .insignia .flag .img img {
+    width: 80px;
+    height: 80px;
+}
+
+.main-insignia-section .insignia .flag .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.main-insignia-section .insignia .flag .stat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.main-insignia-section .gem-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+}
+
+.main-insignia-section .gem-list .gem {
+    width: 350px;
+    height: 100%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0 15px;
+}
+
+.main-insignia-section .gem-list .gem .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    margin-top: 6px;
+}
+
+.main-insignia-section .gem-list .gem .img img {
+    width: 60px;
+    height: 60px;
+}
+
+.main-insignia-section .gem-list .gem .name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-size: 0.93rem;
+    font-weight: bold;
+}
+
+.main-insignia-section .gem-list .gem .stat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    font-size: 0.85rem;
+    font-weight: bold;
 }

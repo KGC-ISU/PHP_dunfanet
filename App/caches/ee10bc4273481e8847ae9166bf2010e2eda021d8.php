@@ -1051,15 +1051,120 @@
             </div>
             
             <div class="main-buff-section">
-                버프
+                <h3>스위칭 장비</h3>
+                <?php $__currentLoopData = $swItem; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="item-info-box">
+                    <div class="item-slot">
+                        <?php echo e($items->slotName); ?>
+
+                    </div>
+                    <div class="item-img">
+                        <img src="https://img-api.neople.co.kr/df/items/<?php echo e($items->itemId); ?>" alt="">
+                    </div>
+                    <div class="item-name-enchant">
+                        <div class="name">
+                            <?php echo e($items->itemName); ?>
+
+                        </div>
+                        <div class="enchants">
+                            <?php if(isset($items->enchant->status)): ?>
+                                <?php $__currentLoopData = $items->enchant->status; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $enchantStat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php echo e($enchantStat->name); ?> +<?php echo e($enchantStat->value); ?> &nbsp
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="item-grade">
+                        <?php if($items->reinforce > 0): ?>
+                            +<?php echo e($items->reinforce); ?> 강화
+                        <?php elseif($items->refine > 0): ?>
+                            +<?php echo e($items->refine); ?> 증폭
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
+                <h3>스위칭 아바타</h3>
+                <?php if($swAvatar == null): ?>
+                    
+                <?php else: ?>
+                    <?php $__currentLoopData = $swAvatar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="item-info-box">
+                        <div class="item-slot">
+                            <?php echo e($items->slotName); ?>
+
+                        </div>
+                        <div class="item-img">
+                            <img src="https://img-api.neople.co.kr/df/items/<?php echo e($items->itemId); ?>" alt="">
+                        </div>
+                        <div class="item-name-enchant">
+                            <div class="name">
+                                <?php echo e($items->itemName); ?>
+
+                            </div>
+                            <div class="enchants">
+                                <?php $__currentLoopData = $items->emblems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $emb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php echo e($emb->itemName); ?> &nbsp
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php endif; ?>
             </div>
     
             <div class="main-stat-section">
-                스탯
+                <div class="stat-inner-box">
+                    <?php $__currentLoopData = $stat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($items->name == "히트리커버리"): ?>
+                        
+                        <?php else: ?>
+                            <div class="stat-box">
+                                <div class="stat-title">
+                                    <h3><?php echo e($items->name); ?></h3>
+                                </div>
+                                <div class="stat-value">
+                                    <p><?php echo e($items->value); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>                
             </div>
     
             <div class="main-insignia-section">
-                휘장
+                <?php if($insignia == null): ?>
+
+                <?php else: ?> 
+                    <div class="insignia">                  
+                        <div class="flag">
+                            <div class="img">
+                                <img src="https://img-api.neople.co.kr/df/items/<?php echo e($insignia->itemId); ?>" alt="flag">
+                            </div>
+                            <div class="name">
+                                <p><?php echo e($insignia->itemName); ?></p>
+                            </div>
+                            <div class="stat">
+                                <p><?php echo e($insignia->itemAbility); ?></p>
+                            </div>
+                        </div>                   
+                    </div>
+                    <div class="gem-list">
+                        <?php $__currentLoopData = $insignia->gems; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $items): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                                        
+                            <div class="gem">
+                                <div class="img">
+                                    <img src="https://img-api.neople.co.kr/df/items/<?php echo e($items->itemId); ?>" alt="gem">
+                                </div>
+                                <div class="name">
+                                    <p><?php echo e($items->itemName); ?></p>
+                                </div>
+                                <div class="stat">
+                                    <p><?php echo e($items->itemAbility); ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
